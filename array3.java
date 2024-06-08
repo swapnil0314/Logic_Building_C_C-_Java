@@ -1,37 +1,20 @@
-public class array3 {
-
-    public static int Largest(int numbers[])
+public class array3
+ {
+    public static void printSpiral(int matrix[][])
     {
-       // int imax = 0;
-        int imin = Integer.MAX_VALUE;
+        int startRow = 0 ;
+        int startCol = 0 ;
+        int endRow = matrix.length-1;
+        int endCol = matrix[0].length-1;
 
-        // for(int i = 0 ; i<numbers.length ; i++)
-        // {
-        //     if (numbers[i] > imax ) {
-        //         imax=numbers[i];
-        //     }
-        // }
-        // return imax;
-
-        for(int i = 0 ; i<numbers.length ; i++)
+        while (startRow <= endRow && startCol <= endCol) 
         {
-            if (numbers[i] < imin) 
-            {
-                imin=numbers[i]  ; 
-            }
+               
         }
-        return imin;
     }
 
     public static void main(String[] args) {
-        
-        int numbers[] = {2,4,6,8,10,12,14,16};
-        
-
-        int index = Largest(numbers); 
-        {
-            System.out.println("THe key is at index  "+index);
-        }
+        int matrix[][] = {{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}};
     }
     
 }

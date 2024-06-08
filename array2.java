@@ -1,31 +1,53 @@
+import java.util.Scanner;
+
 public class array2 {
 
-    public static int LinearSearch(int numbers[], int key)
+    public static void search(int matrix[][])
     {
-        for(int i = 0 ; i<numbers.length ; i++)
+        int largest = 0;
+        for(int i = 0 ; i<matrix.length ; i++)
         {
-            if (numbers[i] == key) {
-                return i;
+            for(int j = 0 ; j<matrix[0].length ; j++)
+            {
+                if (matrix[i][j] > largest) 
+                {
+                   largest =  matrix[i][j] ;
+                }
+              
             }
+           
         }
-        return -1;
+        System.out.println("The largest element is : "+largest);
+        
+
     }
 
     public static void main(String[] args) {
+        int matrix [][] = new int[3][3];
         
-        int numbers[] = {2,4,6,8,10,12,14,16};
-        int key = 10;
-
-        int index = LinearSearch(numbers,key);
-
-        if (index == -1) 
+        Scanner sobj = new  Scanner(System.in);
+        
+        for(int i = 0 ; i<matrix.length ; i++)
         {
-            System.out.println("NOt FOund");   
+            for(int j = 0 ; j<matrix[0].length ; j++)
+            {
+                matrix[i][j]= sobj.nextInt();
+            }
         }
-        else
+
+        
+
+        for(int i = 0 ; i<matrix.length ; i++)
         {
-            System.out.println("THe key is at index  "+index);
+            for(int j = 0 ; j<matrix[0].length  ; j++)
+            {
+                System.out.print(matrix[i][j]+ " ");
+                
+            }
+            System.out.println();
         }
+
+        search(matrix);
+
     }
-    
 }
