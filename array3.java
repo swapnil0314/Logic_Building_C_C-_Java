@@ -1,20 +1,35 @@
-public class array3
- {
-    public static void printSpiral(int matrix[][])
-    {
-        int startRow = 0 ;
-        int startCol = 0 ;
-        int endRow = matrix.length-1;
-        int endCol = matrix[0].length-1;
+//Second Smallest and Second Largest element in an array
 
-        while (startRow <= endRow && startCol <= endCol) 
-        {
-               
-        }
-    }
+
+public class array3 {
+    
 
     public static void main(String[] args) {
-        int matrix[][] = {{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}};
+
+        int[] arr = {5 , 3 , 7 , 2 , 8 , 9};
+
+
+        int firstSmallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
+
+        for(int i = 0 ; i < arr.length ; i++)
+        {
+            if (arr[i] < firstSmallest) 
+            {
+                secondSmallest = firstSmallest;
+                firstSmallest = arr[i];   
+            }
+            else if (arr[i] < secondSmallest && arr[i] != firstSmallest) 
+            {
+                secondSmallest = arr[i];   
+            }
+        }
+
+        if (secondSmallest == Integer.MAX_VALUE) {
+            System.out.println("There is no second smallest element.");
+        } else {
+            System.out.println("Second Smallest Element: " + secondSmallest);
+        }
+        
     }
-    
 }

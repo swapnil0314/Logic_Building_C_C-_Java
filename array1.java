@@ -1,53 +1,29 @@
-import java.util.Scanner;
+//find the smalles number in an array 
+public class array1{
 
-public class array1 {
-
-    public static boolean search(int matrix[][], int key)
+    public static void smallest(int arr[])
     {
-        for(int i = 0 ; i<matrix.length ; i++)
+        int ismall = arr[0];
+        for(int i = 0 ; i < arr.length ; i++ )
         {
-            for(int j = 0 ; j<matrix[0].length ; j++)
-            {
-                if (matrix[i][j] == key) 
-                {
-                    System.out.println("found ar cell ("+ i +","+j+")");
-                    return true;   
-                }
-              
-            }
            
+                if (arr[i] < ismall) 
+                {
+                    ismall = arr[i];   
+                }
+            
+            
         }
-        System.out.println("key not found ");
-        return false;
-
+        System.out.println(ismall);   
     }
-
     public static void main(String[] args) {
-        int matrix [][] = new int[3][3];
+
+        int arr[] = {2 , 8 , 4 , 9 , 7 , 3 , 5 , 1 ,  0 , 7 , 6 , 12 , 18};
+
+        smallest(arr);
         
-        Scanner sobj = new  Scanner(System.in);
-        
-        for(int i = 0 ; i<matrix.length ; i++)
-        {
-            for(int j = 0 ; j<matrix[0].length ; j++)
-            {
-                matrix[i][j]= sobj.nextInt();
-            }
-        }
-
-        
-
-        for(int i = 0 ; i<matrix.length ; i++)
-        {
-            for(int j = 0 ; j<matrix[0].length  ; j++)
-            {
-                System.out.print(matrix[i][j]+ " ");
-                
-            }
-            System.out.println();
-        }
-
-        search(matrix, 5);
-
     }
+
+
+
 }

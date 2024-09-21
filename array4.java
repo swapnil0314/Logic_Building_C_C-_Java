@@ -1,38 +1,25 @@
+//How to reverse a String in java? Can you write a program without using any java inbuilt methods?
+
 public class array4 {
-    
-    
-    public static int BinarySearch(int numbers[], int key)
-    {
-        int start = 0 , end = numbers.length-1;
 
-        while (start <= end) 
-        {
-            int mid = (start + end)/2;
-            
-            //comparisons
-            if (numbers[mid] == key) {
-                return mid;
-            }
-
-            if (numbers[mid] < key) {
-                //right
-                start = mid+1;
-            }
-            else
-            {
-                end = mid-1;
-            }
-        }
-
-        return -1;
-    }
 
     public static void main(String[] args) {
         
-        int numbers[] = {2,4,6,8,10,12,14,16};
-        int key = 10;
+        String originalString = "HelloWOrld";
 
-            System.out.println("Index of the key is : "+BinarySearch(numbers, key));   
-       
+        char [] charArray = originalString.toCharArray();
+
+        String reversedString = "";
+
+        for(int i = charArray.length-1 ; i >= 0; i--)
+        {
+            reversedString += charArray[i];
+        }
+
+
+        System.out.println("Original String: "+originalString);
+
+        System.out.println("Reversed String: "+reversedString);
     }
+    
 }
