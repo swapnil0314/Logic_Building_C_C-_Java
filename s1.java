@@ -1,61 +1,71 @@
+import java.util.Stack;
 
-/**
- * s1
- */
 public class s1 {
 
-    public static boolean isPalindrome(String str)
+    public static void pushAtBottom(Stack<Integer> s , int data)
     {
-        for(int i=0; i<str.length()/2 ; i++)
-        {
-            int n = str.length();
-            if (str.charAt(i) != str.charAt(n-1-i)) 
-            {
-                return false;   
-            }
+
+        if (s.isEmpty()) {
+            s.push(data);
+            return;
+
+        }
+        int top = s.pop();
+        pushAtBottom(s, data);
+        s.push(top);
+    }
+
+
+    public static String reverseString(String str)
+    {
+        Stack<Character> s = new Stack<>();
+
+        int idx = 0;
+
+        while (idx < str.length()) {
             
-        }
-        return true;
-    }
+            s.push(str.charAt(idx));
+            idx++;
 
-    public static float getSHortestPath(String path)
-    {
-        int x=0 , y =0 ;
-
-        for(int i=0; i<path.length() ; i++)
-        {
-            char dir = path.charAt(i);
-
-            //south
-            if (dir == 'S') 
-            {
-                y--;   
-            }
-            else if (dir == 'N') 
-            {
-                y++;   
-            }
-            else if (dir == 'W') 
-            {
-                x--;    
-            }
-            else
-            {
-                x++;
-            }
         }
 
-        int X2 = x*x;
-        int Y2 = y*y;
+        StringBuilder result = new StringBuilder("");
 
-        return (float)Math.sqrt(X2+Y2);
+        while (!s.isEmpty()) {
+            
+            char curr = s.pop();
+
+            result.append(curr);
+        }
+
+      return result.toString();
+
+
 
     }
+
+
 
     public static void main(String[] args) {
-        String str = "WNEENESENNN";
+        Stack<Integer> s = new Stack<>();
 
-        System.out.println(getSHortestPath(str));
-       
+        // s.push(1);
+        // s.push(2);
+        // s.push(3);
+
+        // pushAtBottom(s,4);
+
+        // while (!s.isEmpty()) {
+        //     System.out.println(s.pop());
+        // }
+
+
+        String str = "abs";
+
+        String result = reverseString(str);
+
+        System.out.println(result);
+
     }
+    
 }
