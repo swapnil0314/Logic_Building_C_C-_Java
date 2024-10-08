@@ -1,41 +1,47 @@
-public class array11 
-{
+/*Find the maximum product of two integers in an array.
+Find the second largest element in an array.
+Rotate an array by k positions.
 
-    public static void maxSubarraySum(int numbers[])
+ */
+
+
+public class array11 {
+
+    public static void secondLargest(int arr[])
     {
-        int currSum = 0 ; 
-        int maxSum = Integer.MIN_VALUE;
+        int imax =Integer.MIN_VALUE;
+        int smax = Integer.MIN_VALUE;
 
-        int prefix[] = new int[numbers.length];
-        prefix[0] = numbers[0];
-
-        for(int i = 1 ; i<prefix.length ; i++)
+        for(int i=0 ; i<arr.length; i++)
         {
-            prefix[i]=prefix[i-1] +numbers[i];
-        }
-
-        for(int i = 0 ; i<numbers.length ; i++)
-        {
-            int start = i;
-            for(int j = i ; j<numbers.length ; j++)
+            if (arr[i] > imax) 
             {
-                int end = j;
-                currSum = start == 0 ? prefix[end] : prefix[end] - prefix[start-1] ; 
-
-                if (maxSum < currSum) 
-                {
-                    maxSum = currSum;   
-                }
-
+                smax = imax;
+                imax = arr[i];
+            }
+            else if (arr[i] >= smax && arr[i]<= imax) 
+            {
+                smax= arr[i];
             }
         }
-        System.out.println("Max Sum ="+maxSum);
+
+        System.out.println("The second largest number is : "+smax);
     }
 
-    public static void main(String[] args) {
-        int numbers[] = {1, -2, 6 , -1 , 3};
+    public static void rotateArray(int arr[],int key)
+    {
 
-        maxSubarraySum(numbers);
+
+    }
+
+
+    public static void main(String[] args) {
+        
+        int arr[] = {2,3,4,8,7,4,1,3,5,6,7,8,4,1,9};
+
+       // secondLargest(arr);
+
+        rotateArray(arr,5);
     }
     
 }
